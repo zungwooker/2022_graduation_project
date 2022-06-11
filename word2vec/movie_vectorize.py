@@ -11,7 +11,7 @@ def v(str_list, dic):
     return a
 
 movie_genre_data = pd.read_csv("./dataset_movie/movie.csv")
-with open('genre_dic.pickle', 'rb') as f:
+with open('dataset_movie/genre_dic.pickle', 'rb') as f:
     genre_dic = pickle.load(f)
 
 qq = 0
@@ -19,10 +19,6 @@ tmp_genres = movie_genre_data.to_numpy()
 print(len(tmp_genres))
 movies = []
 for data in tmp_genres:
-    if data[2] == '(no genres listed)':
-        qq += 1
-        continue
-
     movieID = data[0]
     movieName = data[1]
     movieGenres = data[2].split('|')
@@ -40,3 +36,4 @@ print(movies[131262])
 print(len(movies))
 print(qq)
 print(len(movies) + qq)
+print(movies[126560])
